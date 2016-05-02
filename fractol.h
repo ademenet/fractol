@@ -11,12 +11,22 @@ typedef struct		s_env
 {
 	void			*mlx;
 	void			*win;
-	void			*img;
-	char			*img_data;
+	void			*im;
+	char			*im_buf;
 	int 			bpp;
-	int 			sl;
 	int 			endian;
 
+	int 			sl;
+
+	int				size_x;
+	int				size_y;
 }					t_env;
+
+/*
+** images.c
+*/
+
+void		put_pixel(t_env *env, int x, int y, int color);
+int			put_image(t_env *env);
 
 #endif
