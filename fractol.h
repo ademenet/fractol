@@ -1,11 +1,12 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx.h"
+# include <stdio.h>
+# include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
 
-# define WIN_X 800
-# define WIN_Y 600
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
 
 typedef struct		s_env
 {

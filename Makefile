@@ -10,11 +10,9 @@ HEADERS = fdf.h
 
 OBJECT = $(SOURCES:.c=.o)
 
-FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
-
 $(NAME):
 	@make --directory libft/
-	@$(CC) $(FLAGS) -o fdf libft/libft.a $(SOURCES) $(FRAMEWORK)
+	@$(CC) $(FLAGS) -o fdf libft/libft.a $(SOURCES)
 
 all: $(NAME)
 
