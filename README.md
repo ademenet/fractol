@@ -13,6 +13,7 @@ make
 
 ### Sources
 
+- [Nature of code: fractals](http://natureofcode.com/book/chapter-8-fractals/)
 - [Dessiner une fractale en C/C++](https://www.carnetdumaker.net/articles/dessiner-la-fractale-de-mandelbrot-en-python-et-en-cc/#dessin-dune-fractale-de-mandelbrot-en-cc)
 - [Dessiner la fractale de Mandelbrot](http://sdz.tdct.org/sdz/dessiner-la-fractale-de-mandelbrot.html)
 - [Ensemble de Mandelbrot](http://www.mathcurve.com/fractals/mandelbrot/mandelbrot.shtml)
