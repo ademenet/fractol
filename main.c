@@ -29,6 +29,7 @@ int		main(void)
 	// env.im = mlx_new_image(env.mlx, WIN_WIDTH, WIN_HEIGHT); // create a new image in memory
 	// env.im_buf = mlx_get_data_addr(env.im, &env.bpp, &env.sl, &env.endian);
 	put_image(&env); // create, process and display image
+	mlx_loop(env.mlx);
 	// }
 	// else
 	// 	ft_error("too much arguments or not enough");
