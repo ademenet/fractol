@@ -7,6 +7,8 @@
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
+# define WIN_WIDTH 270
+# define WIN_HEIGHT 240
 
 typedef struct		s_env
 {
@@ -29,5 +31,17 @@ typedef struct		s_env
 
 void		put_pixel(t_env *env, int x, int y, int color);
 int			put_image(t_env *env);
+
+/*
+** fractals.c
+*/
+
+void		fractals_compute(t_env *env);
+
+/*
+** mandelbrot.c
+*/
+
+void		mandelbrot(int x, int y, t_mdl *mdl, t_env *env);
 
 #endif

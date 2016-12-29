@@ -4,7 +4,9 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = fdf
 
-SOURCES =	main.c
+SOURCES =	main.c\
+					fractals.c\
+					mandelbrot.c
 
 HEADERS = fdf.h
 
