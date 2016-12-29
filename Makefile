@@ -2,36 +2,39 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-NAME = fdf
+NAME = fractol
 
 SOURCES =	main.c\
+					images.c\
 					fractals.c\
 					mandelbrot.c
 
-HEADERS = fdf.h
+HEADERS = fractol.h
 
 OBJECT = $(SOURCES:.c=.o)
 
 $(NAME):
 	@make --directory libft/
-	@$(CC) $(FLAGS) -o fdf libft/libft.a $(SOURCES)
+	@$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES)
+
+FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
 clean:
 	@rm -rf $(OBJECT)
 	@make clean --directory libft/
-	@echo "\033[1;34mFDF\t\033[1;33mCleaning obj\t\033[0;32m[OK]\033[0m"
+	@echo "\033[1;34mFractol\t\t\033[1;33mCleaning obj\t\033[0;32m[OK]\033[0m"
 
 fclean: clean
 	@rm -rf $(NAME)
 	@make fclean --directory libft/
-	@echo "\033[1;34mFDF\t\033[1;33mCleaning\t\033[0;32m[OK]\033[0m"
+	@echo "\033[1;34mFractol\t\t\033[1;33mCleaning\t\033[0;32m[OK]\033[0m"
 
 re: fclean all
 
 rr:
-	$(CC) $(FLAGS) -o fdf libft/libft.a $(SOURCES) $(FRAMEWORK)
+	$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES) $(FRAMEWORK)
 
 run:
 	./$(NAME)
