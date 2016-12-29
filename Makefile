@@ -15,7 +15,7 @@ OBJECT = $(SOURCES:.c=.o)
 
 $(NAME):
 	@make --directory libft/
-	@$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES)
+	@$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES) $(FRAMEWORK)
 
 FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
