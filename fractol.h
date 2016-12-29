@@ -5,10 +5,40 @@
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
 
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
 # define WIN_WIDTH 270
 # define WIN_HEIGHT 240
+
+/*
+** This structure is for shared options for every fractals.
+*/
+
+typedef struct		s_fra
+{
+	float			zoom_x;
+	float			zoom_y;
+	int				max_iter;
+}					t_fra;
+
+/*
+** This structure is for all mandelbrot fractal's concerns.
+*/
+
+typedef struct      s_mdl
+{
+	float			x1;
+	float			y1;
+	float			x2;
+	float			y2;
+	float			c_r;
+	float			c_i;
+	float			z_r;
+	float			z_i;
+	t_fra			settings;
+}                   t_mdl;
+
+/*
+** This structure store environment settings for mlx purpose.
+*/
 
 typedef struct		s_env
 {
