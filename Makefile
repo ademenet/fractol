@@ -5,19 +5,19 @@ FLAGS = -Wall -Wextra -Werror
 NAME = fractol
 
 SOURCES =	main.c\
-					images.c\
-					fractals.c\
-					mandelbrot.c
+			images.c\
+			fractals.c\
+			mandelbrot.c
 
 HEADERS = fractol.h
 
 OBJECT = $(SOURCES:.c=.o)
 
+FRAMEWORK = minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
+
 $(NAME):
 	@make --directory libft/
 	@$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES) $(FRAMEWORK)
-
-FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 

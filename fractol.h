@@ -2,8 +2,7 @@
 # define FRACTOL_H
 
 # include <stdio.h>
-// # include "minilibx_macos/mlx.h"
-# include "mlx.h"
+# include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
 
 # define WIN_WIDTH 270
