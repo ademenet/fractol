@@ -23,6 +23,10 @@ void        mandelbrot(int x, int y, t_mdl *mdl, t_env *env)
 	}
 	if (i == mdl->settings.max_iter)
 	{
-		put_pixel(env, x, y, 10246613);
+		put_pixel(env, x, y, 000000000);
+	}
+	else
+	{
+		put_pixel(env, x, y, i * 255 / mdl->settings.max_iter);
 	}
 }
