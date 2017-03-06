@@ -4,9 +4,10 @@
 # include <stdio.h>
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
+# include "libft/ft_printf/include/fpf_printf.h"
 
-# define WIN_WIDTH 270
-# define WIN_HEIGHT 240
+# define WIN_WIDTH 700
+# define WIN_HEIGHT 500
 
 /*
 ** This structure is for shared options for every fractals.
@@ -42,6 +43,8 @@ typedef struct      s_mdl
 
 typedef struct		s_env
 {
+	char			*arg;
+
 	void			*mlx;
 	void			*win;
 	void			*im;
@@ -73,5 +76,11 @@ void		fractals_compute(t_env *env);
 */
 
 void		mandelbrot(int x, int y, t_mdl *mdl, t_env *env);
+
+/*
+** julia.c
+*/
+
+void		julia(int x, int y, t_mdl *mdl, t_env *env);
 
 #endif
