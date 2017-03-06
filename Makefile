@@ -19,7 +19,7 @@ FRAMEWORK = minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
 
 $(NAME):
 	@make --directory libft/
-	@$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES) $(FRAMEWORK)
+	@$(CC) $(FLAGS) -o fractol libft/libft.a libft/ft_printf/libftprintf.a $(SOURCES) $(FRAMEWORK)
 
 all: $(NAME)
 
