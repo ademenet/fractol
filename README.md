@@ -1,8 +1,8 @@
-# Fractol
+# Fract'ol
 
-Fractol is a software displaying and allowing users to play with several fractals such as: Mandelbrot, Julia...
+Fract'ol is a software displaying and allowing users to play with several fractals such as: Mandelbrot, Julia...
 
-### Install
+## Install
 
 ```bash
 cd ~
@@ -10,6 +10,30 @@ git clone https://github.com/moannuo/fractol
 cd fractol
 make
 ```
+
+## Fractals
+
+Fract'ol allows you to display several fractals. Here some short description about their mathematical definitions.
+
+### Mandelbrot
+
+From [Mandelbrot](https://en.wikipedia.org/wiki/Benoit_Mandelbrot) who discovered this sequence.
+
+The formula is:
+
+$$ \begin{cases} z_0=0\\ f_{c}(z)=z^{2}+c \end{cases} $$
+
+Where $f_{c}$ does not diverge.
+
+### Julia
+
+Julia set use the same Mandelbrot formula:
+
+$$ \begin{cases} z_0=0\\ f_{c}(z)=z^{2}+c \end{cases} $$
+
+This time $c$ is fixed, you do not compute it each time.
+
+### ???
 
 ### Sources
 
