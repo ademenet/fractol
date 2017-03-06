@@ -2,6 +2,10 @@
 
 /*
 ** Mandelbrot function.
+** As we know that Mandelbrot's boundaries on y are [-1.2, 1.2] and on y are
+** [-2.1, 0.6] we set up these limits.
+** This function take a point, represented by its coordinates (x, y) and test if
+** it belongs to Mandelbrot's set.
 */
 
 void        mandelbrot(int x, int y, t_mdl *mdl, t_env *env)
@@ -22,6 +26,8 @@ void        mandelbrot(int x, int y, t_mdl *mdl, t_env *env)
 		mdl->z_r = mdl->z_r * mdl->z_r - mdl->z_i * mdl->z_i + mdl->c_r;
 		mdl->z_i = 2 * mdl->z_i * tmp + mdl->c_i;
 	}
+	// We test if we reach max_iter or not. If it is the case then the point
+	// does not belong to Mandelbrot's set and it's drew in a certain color.
 	if (i == mdl->settings.max_iter)
 	{
 		put_pixel(env, x, y, 000000000);

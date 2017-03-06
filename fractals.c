@@ -16,6 +16,9 @@ void        fractals_compute(t_env *env)
 	mdl.settings.zoom_x = WIN_WIDTH / (mdl.x2 - mdl.x1);
 	mdl.settings.zoom_y = WIN_HEIGHT / (mdl.y2 - mdl.y1);
 	// TODO: set max_iter as a variable
+	mdl.settings.max_iter = 50; // Also called "rang" in french
+	// In the following loops we are going to compute for each point if it
+	// belongs to the corresponding fractal set.
 	while(++x < WIN_WIDTH)
 	{
 		y = -1;
