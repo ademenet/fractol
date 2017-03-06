@@ -15,6 +15,8 @@ OBJECT = $(SOURCES:.c=.o)
 
 FRAMEWORK = minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
 
+# TODO: add make mlx
+
 $(NAME):
 	@make --directory libft/
 	@$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES) $(FRAMEWORK)

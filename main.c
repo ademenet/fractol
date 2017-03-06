@@ -21,10 +21,13 @@ int		main(void)
 {
 	t_env	env;
 
+	// TODO: parser!!!
+	// TODO: error handling
+	// BONUS: cuda
 	// if (ac == 2)
 	// {
 	env.mlx = mlx_init(); // initialize mlx server
-	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fractol"); // set a window
+	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol"); // set a window
     // Instead of followings functions, we'll use put_image now:
 	// env.im = mlx_new_image(env.mlx, WIN_WIDTH, WIN_HEIGHT); // create a new image in memory
 	// env.im_buf = mlx_get_data_addr(env.im, &env.bpp, &env.sl, &env.endian);
