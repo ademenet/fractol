@@ -7,7 +7,9 @@ NAME = fractol
 SOURCES =	main.c\
 			images.c\
 			fractals.c\
-			mandelbrot.c
+			mandelbrot.c\
+			julia.c\
+			burningship.c
 
 HEADERS = fractol.h
 

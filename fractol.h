@@ -2,6 +2,7 @@
 # define FRACTOL_H
 
 # include <stdio.h>
+# include <stdlib.h>
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
 # include "libft/ft_printf/include/fpf_printf.h"
@@ -24,7 +25,7 @@ typedef struct		s_fra
 ** This structure is for all mandelbrot fractal's concerns.
 */
 
-typedef struct      s_mdl
+typedef struct      s_fal
 {
 	float			x1;
 	float			y1;
@@ -35,7 +36,7 @@ typedef struct      s_mdl
 	float			z_r;
 	float			z_i;
 	t_fra			settings;
-}                   t_mdl;
+}                   t_fal;
 
 /*
 ** This structure store environment settings for mlx purpose.
@@ -43,19 +44,16 @@ typedef struct      s_mdl
 
 typedef struct		s_env
 {
-	char			*arg;
-
+	char			*im_buf;
+	char			arg[3];
+	int 			bpp;
+	int 			endian;
+	int 			sl;
+	int				size_x;
+	int				size_y;
 	void			*mlx;
 	void			*win;
 	void			*im;
-	char			*im_buf;
-	int 			bpp;
-	int 			endian;
-
-	int 			sl;
-
-	int				size_x;
-	int				size_y;
 }					t_env;
 
 /*
@@ -75,12 +73,18 @@ void		fractals_compute(t_env *env);
 ** mandelbrot.c
 */
 
-void		mandelbrot(int x, int y, t_mdl *mdl, t_env *env);
+void		mandelbrot(int x, int y, t_fal *fal, t_env *env);
 
 /*
 ** julia.c
 */
 
-void		julia(int x, int y, t_mdl *mdl, t_env *env);
+void		julia(int x, int y, t_fal *fal, t_env *env);
+
+/*
+** burningship.c
+*/
+
+void        burningship(int x, int y, t_fal *fal, t_env *env);
 
 #endif
