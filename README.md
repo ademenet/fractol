@@ -33,7 +33,9 @@ $$ \begin{cases} z_0=0\\ f_{c}(z)=z^{2}+c \end{cases} $$
 
 This time $c$ is fixed, you do not compute it each time.
 
-### ???
+### Burning ship
+
+It is really similar to Mandelbrot set but you take the absolute value of the imaginary and real part.
 
 ### Sources
 
