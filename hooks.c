@@ -29,3 +29,13 @@ int			events(int keycode, t_env *env)
 	put_image(env, env->fal);
 	return (0);
 }
+
+int			params(int x, int y, t_env *env)
+{
+	printf("x = %d; y = %d\n", x, y);
+	env->fal->c_r = (float)x / (float)WIN_WIDTH;
+	env->fal->c_i = (float)y / (float)WIN_HEIGHT;
+	printf("c_r = %f; c_i = %f\n", env->fal->c_r, env->fal->c_i);
+	put_image(env, env->fal);
+	return(0);
+}

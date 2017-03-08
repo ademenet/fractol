@@ -33,6 +33,8 @@ void		julia_initalization(t_fal *fal)
 	fal->y1 = -1.2;
 	fal->y2 = 1.2;
 	fal->max_iter = 100;
+	fal->c_r = 0.285;
+	fal->c_i = 0.01;
 	fal->zoom_x = WIN_WIDTH / (fal->x2 - fal->x1);
 	fal->zoom_y = WIN_HEIGHT / (fal->y2 - fal->y1);
 }
@@ -82,8 +84,8 @@ int		main(int argc, char **argv)
 	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol by ademenet");
 	// create, process and display image
 	put_image(&env, &fal);
-	// TODO: change parameters for Julia woth mouse
 	mlx_hook(env.win, 2, 1, &events, &env);
+	mlx_hook(env.win, 6, 1, &params, &env);
 	mlx_loop(env.mlx);
 	return (0);
 }

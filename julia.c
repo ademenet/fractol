@@ -11,8 +11,6 @@ void		julia(int x, int y, t_fal *fal, t_env *env)
 	float	tmp;
 
 	i = -1;
-	fal->c_r = 0.285;
-	fal->c_i = 0.01;
 	fal->z_r = x / fal->zoom_x + fal->x1;;
 	fal->z_i = y / fal->zoom_y + fal->y1;;
 	while ((fal->z_r * fal->z_r + fal->z_i * fal->z_i) < 4

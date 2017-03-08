@@ -85,5 +85,6 @@ void        burningship(int x, int y, t_fal *fal, t_env *env);
 */
 
 int			events(int keycode, t_env *env);
+int			params(int x, int y, t_env *env);
 
 #endif
