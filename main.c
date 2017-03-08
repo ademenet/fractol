@@ -13,40 +13,77 @@ void		display_usage(void)
 	exit(EXIT_FAILURE);
 }
 
+void		mandelbrot_initalization(t_fal *fal)
+{
+	fal->ptr = &mandelbrot;
+	fal->x1 = -2.1;
+	fal->x2 = 0.6;
+	fal->y1 = -1.2;
+	fal->y2 = 1.2;
+	fal->max_iter = 100;
+	fal->zoom_x = WIN_WIDTH / (fal->x2 - fal->x1);
+	fal->zoom_y = WIN_HEIGHT / (fal->y2 - fal->y1);
+}
+
+void		julia_initalization(t_fal *fal)
+{
+	fal->ptr = &julia;
+	fal->x1 = -1;
+	fal->x2 = 1;
+	fal->y1 = -1.2;
+	fal->y2 = 1.2;
+	fal->max_iter = 100;
+	fal->zoom_x = WIN_WIDTH / (fal->x2 - fal->x1);
+	fal->zoom_y = WIN_HEIGHT / (fal->y2 - fal->y1);
+}
+
+void		burningship_initalization(t_fal *fal)
+{
+	fal->ptr = &burningship;
+	fal->x1 = -1;
+	fal->x2 = 1;
+	fal->y1 = -1.2;
+	fal->y2 = 1.2;
+	fal->max_iter = 100;
+	fal->zoom_x = WIN_WIDTH / (fal->x2 - fal->x1);
+	fal->zoom_y = WIN_HEIGHT / (fal->y2 - fal->y1);
+}
+
 /*
 ** Flag which fractal to display in env.arg array.
 */
 
-char		*parser(char **argv, char *arg_parse)
+int			parser(char **argv, t_fal *fal)
 {
 	if (ft_strcmp("mandelbrot", argv[1]) == 0)
-		arg_parse[0] = 1;
+		mandelbrot_initalization(fal);
 	else if (ft_strcmp("julia", argv[1]) == 0)
-		arg_parse[1] = 1;
+		julia_initalization(fal);
 	else if (ft_strcmp("burningship", argv[1]) == 0)
-		arg_parse[2] = 1;
+		burningship_initalization(fal);
 	else
 		display_usage();
-	return arg_parse;
+	return (1);
 }
 
 int		main(int argc, char **argv)
 {
 	t_env	env;
+	t_fal	fal;
 
-	// initialize arg array with 0
-	ft_bzero(env.arg, 3);
 	// parse command lines
+	env.fal = &fal;
 	if (argc < 2 || argc > 3)
 		display_usage();
 	else
-		parser(argv, env.arg);
-	// initialize mlx server
+		parser(argv, &fal);
+	// initialize minilibx variables
 	env.mlx = mlx_init();
-	// set a window
 	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol by ademenet");
 	// create, process and display image
-	put_image(&env);
+	put_image(&env, &fal);
+	// TODO: change parameters for Julia woth mouse
+	mlx_hook(env.win, 2, 1, &events, &env);
 	mlx_loop(env.mlx);
 	return (0);
 }

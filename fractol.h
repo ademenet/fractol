@@ -14,19 +14,12 @@
 ** This structure is for shared options for every fractals.
 */
 
-typedef struct		s_fra
-{
-	float			zoom_x;
-	float			zoom_y;
-	int				max_iter;
-}					t_fra;
-
-/*
-** This structure is for all mandelbrot fractal's concerns.
-*/
-
 typedef struct      s_fal
 {
+	void			(*ptr)();
+	int				max_iter;
+	float			zoom_x;
+	float			zoom_y;
 	float			x1;
 	float			y1;
 	float			x2;
@@ -35,7 +28,6 @@ typedef struct      s_fal
 	float			c_i;
 	float			z_r;
 	float			z_i;
-	t_fra			settings;
 }                   t_fal;
 
 /*
@@ -45,7 +37,6 @@ typedef struct      s_fal
 typedef struct		s_env
 {
 	char			*im_buf;
-	char			arg[3];
 	int 			bpp;
 	int 			endian;
 	int 			sl;
@@ -54,6 +45,7 @@ typedef struct		s_env
 	void			*mlx;
 	void			*win;
 	void			*im;
+	t_fal			*fal;
 }					t_env;
 
 /*
@@ -61,13 +53,14 @@ typedef struct		s_env
 */
 
 void		put_pixel(t_env *env, int x, int y, int color);
-int			put_image(t_env *env);
+void        fractals_compute(t_env *env, t_fal *fal);
+int			put_image(t_env *env, t_fal *fal);
 
 /*
 ** fractals.c
 */
 
-void		fractals_compute(t_env *env);
+void		set_limits(t_env *env, t_fal *fal);
 
 /*
 ** mandelbrot.c
@@ -86,5 +79,11 @@ void		julia(int x, int y, t_fal *fal, t_env *env);
 */
 
 void        burningship(int x, int y, t_fal *fal, t_env *env);
+
+/*
+** hooks.c
+*/
+
+int			events(int keycode, t_env *env);
 
 #endif

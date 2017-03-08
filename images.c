@@ -20,17 +20,50 @@ void		put_pixel(t_env *env, int x, int y, int color)
 }
 
 /*
+** Skim the complete plan in order to compute if each point of coordinates
+** (x, y) belongs to the given fractal set.
+*/
+
+void        fractals_compute(t_env *env, t_fal *fal)
+{
+	int		x;
+	int		y;
+	// t_fal	fal;
+
+	x = -1;
+
+	// set_limits(env, &fal);
+	// fal.zoom_x = WIN_WIDTH / (fal.x2 - fal.x1);
+	// fal.zoom_y = WIN_HEIGHT / (fal.y2 - fal.y1);
+
+	// TODO: set max_iter as a variable
+
+	// fal.max_iter = 100; // Also called "rang" in french
+
+	// In the following loops we are going to compute for each point if it
+	// belongs to the corresponding fractal set.
+	while(++x < WIN_WIDTH)
+	{
+		y = -1;
+		while (++y < WIN_HEIGHT)
+		{
+			fal->ptr(x, y, fal, env);
+		}
+	}
+}
+
+/*
 ** Create a new image, get image buffer and compute fractals stored
 ** into image buffer (im_buf). Then, dump to window and destroy image from
 ** memory.
 */
 
-int			put_image(t_env *env)
+int			put_image(t_env *env, t_fal *fal)
 {
 	env->im = mlx_new_image(env->mlx, WIN_WIDTH, WIN_HEIGHT); // create a new image in memory
 	env->im_buf = mlx_get_data_addr(env->im, &(env->bpp), &(env->sl),
 		&(env->endian)); // get image buffer (char*)
-	fractals_compute(env); // compute image
+	fractals_compute(env, fal); // compute image
 	mlx_put_image_to_window(env->mlx, env->win, env->im, 0, 0); // dump image to window
 	mlx_destroy_image(env->mlx, env->im); // destroy image from memory
 	return (0);

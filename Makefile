@@ -6,39 +6,42 @@ NAME = fractol
 
 SOURCES =	main.c\
 			images.c\
-			fractals.c\
 			mandelbrot.c\
 			julia.c\
-			burningship.c
+			burningship.c\
+			hooks.c
 
 HEADERS = fractol.h
+
+LIBS = libft/libft.a libft/ft_printf/libftprintf.a
 
 OBJECT = $(SOURCES:.c=.o)
 
 FRAMEWORK = minilibx_macos/libmlx.a -framework OpenGL -framework AppKit
 
-# TODO: add make mlx
-
 $(NAME):
 	@make --directory libft/
-	@$(CC) $(FLAGS) -o fractol libft/libft.a libft/ft_printf/libftprintf.a $(SOURCES) $(FRAMEWORK)
+	@make --directory minilibx_macos/
+	@$(CC) $(FLAGS) -o fractol $(LIBS) $(SOURCES) $(FRAMEWORK)
 
 all: $(NAME)
 
 clean:
 	@rm -rf $(OBJECT)
 	@make clean --directory libft/
+	@make clean --directory minilibx_macos/
 	@echo "\033[1;34mFractol\t\t\033[1;33mCleaning obj\t\033[0;32m[OK]\033[0m"
 
 fclean: clean
 	@rm -rf $(NAME)
 	@make fclean --directory libft/
+	@make clean --directory minilibx_macos/
 	@echo "\033[1;34mFractol\t\t\033[1;33mCleaning\t\033[0;32m[OK]\033[0m"
 
 re: fclean all
 
 rr:
-	$(CC) $(FLAGS) -o fractol libft/libft.a $(SOURCES) $(FRAMEWORK)
+	$(CC) $(FLAGS) -o fractol $(LIBS) $(SOURCES) $(FRAMEWORK)
 
 run:
 	./$(NAME)
