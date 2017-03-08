@@ -28,27 +28,15 @@ void        fractals_compute(t_env *env, t_fal *fal)
 {
 	int		x;
 	int		y;
-	// t_fal	fal;
 
 	x = -1;
-
-	// set_limits(env, &fal);
-	// fal.zoom_x = WIN_WIDTH / (fal.x2 - fal.x1);
-	// fal.zoom_y = WIN_HEIGHT / (fal.y2 - fal.y1);
-
-	// TODO: set max_iter as a variable
-
-	// fal.max_iter = 100; // Also called "rang" in french
-
 	// In the following loops we are going to compute for each point if it
 	// belongs to the corresponding fractal set.
 	while(++x < WIN_WIDTH)
 	{
 		y = -1;
 		while (++y < WIN_HEIGHT)
-		{
 			fal->ptr(x, y, fal, env);
-		}
 	}
 }
 
