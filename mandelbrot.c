@@ -27,8 +27,5 @@ void        mandelbrot(int x, int y, t_fal *fal, t_env *env)
 	}
 	// We test if we reach max_iter or not. If it is the case then the point
 	// does not belong to Mandelbrot's set and it's drew in a certain color.
-	if (i == fal->max_iter)
-		put_pixel(env, x, y, 000000000);
-	else
-		put_pixel(env, x, y, i * 255 / fal->max_iter);
+	display_one_point_color(env, fal, x, y, i);
 }
