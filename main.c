@@ -81,7 +81,7 @@ int		main(int argc, char **argv)
 		parser(argv, &fal);
 	// initialize minilibx variables
 	env.mlx = mlx_init();
-	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol by ademenet");
+	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fract'ol");
 	// create, process and display image
 	put_image(&env, &fal);
 	mlx_hook(env.win, 2, 1, &events, &env);

@@ -87,4 +87,11 @@ void        burningship(int x, int y, t_fal *fal, t_env *env);
 int			events(int keycode, t_env *env);
 int			params(int x, int y, t_env *env);
 
+/*
+** utils.c
+*/
+
+void		display_one_point_color(t_env *env, t_fal *fal, int x, int y,
+									int i);
+
 #endif

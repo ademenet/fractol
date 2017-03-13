@@ -9,7 +9,8 @@ SOURCES =	main.c\
 			mandelbrot.c\
 			julia.c\
 			burningship.c\
-			hooks.c
+			hooks.c\
+			utils.c
 
 HEADERS = fractol.h
 
