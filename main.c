@@ -68,6 +68,11 @@ int			parser(char **argv, t_fal *fal)
 	return (1);
 }
 
+// TODO: effets psychedeliques
+	// [x] base done
+	// [ ] faire un truc parametable (ou bien genre 3 selections de couleurs au choix)
+// TODO: zoom a la souris
+
 int		main(int argc, char **argv)
 {
 	t_env	env;
@@ -75,7 +80,7 @@ int		main(int argc, char **argv)
 
 	// parse command lines
 	env.fal = &fal;
-	if (argc < 2 || argc > 3)
+	if (argc != 2)
 		display_usage();
 	else
 		parser(argv, &fal);
